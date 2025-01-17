@@ -93,7 +93,7 @@ fi
 lspci | grep VGA | grep AMD
 if [ $? -eq 0 ]; then
     echo "You have an AMD GPU."
-    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon radeontop
+    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl lib32-libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon radeontop
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=radeonsi
 VDPAU_DRIVER=radeonsi" > /etc/environment
