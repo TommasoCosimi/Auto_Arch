@@ -88,11 +88,12 @@ echo "
 # Swapfile
 /swap/swapfile0 none swap sw 0 0" | sudo tee -a /etc/fstab
 
+
 #################################################
 # Enable Flatpaks (both stable and beta channels)
 #################################################
-flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists --user flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 yay -Syu --noconfirm flatpak-builder
 
 
