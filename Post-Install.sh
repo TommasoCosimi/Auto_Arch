@@ -181,6 +181,7 @@ flatpak -y install flathub org.kde.kile
 flatpak -y install flathub org.kde.kclock
 flatpak -y install flathub org.kde.marknote
 flatpak -y install flathub org.kde.kalk
+flatpak -y install flathub org.gtk.Gtk3theme.Breeze
 
 
 ###########################
@@ -228,9 +229,17 @@ flatpak -y install flathub org.ppsspp.PPSSPP
 flatpak -y install flathub org.DolphinEmu.dolphin-emu
 
 
+################################################
+# Apply the correct theming for GTK Applications
+################################################
+flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
+
+
 ###########################
 # Set up Ungoogled Chromium
 ###########################
+flatpak run io.github.ungoogled_software.ungoogled_chromium
+flatpak kill io.github.ungoogled_software.ungoogled_chromium
 cp ./CustomConfigs/chromium-flags.conf $HOME/.var/app/io.github.ungoogled_software.ungoogled_chromium/config/
 wget https://raw.githubusercontent.com/ungoogled-software/ungoogled-chromium-flatpak/master/widevine-install.sh -P ./CustomConfigs
 chmod +x ./CustomConfigs/widevine-install.sh
