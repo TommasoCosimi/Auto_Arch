@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#########################################
+# Use the correct Keyboard Layout on SDDM
+#########################################
+localectl set-keymap it
+
+
 #######################
 # Snapper Configuration
 #######################

@@ -24,7 +24,6 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=it
 XKBLAYOUT=it
 XKBMODEL=pc105" > /etc/vconsole.conf
-localectl set-keymap it
 
 
 ###############
