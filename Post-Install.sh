@@ -24,6 +24,7 @@ sudo systemctl enable --now snapper-cleanup.timer
 sudo systemctl enable --now grub-btrfsd
 sudo snapper --config root create --description "First Root Snapshot" --cleanup-algorithm timeline
 sudo snapper --config home create --description "First Home Snapshot" --cleanup-algorithm timeline
+yay -Syu --noconfirm snap-pac
 
 
 ####################
@@ -118,7 +119,7 @@ yay -Syu --noconfirm visual-studio-code-bin jetbrains-toolbox arduino-ide
 # Podman
 sudo pacman -Syu --noconfirm podman podman-compose
 # Docker
-sudo pacman -Syu --noconfirm docker docker-compose docker-desktop
+yay -Syu --noconfirm docker docker-compose docker-desktop
 sudo usermod -aG docker $(whoami)
 sudo systemctl enable --now docker.service
 # Tools
@@ -136,7 +137,6 @@ yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vm
 sudo systemctl start vmware-networks-configuration.service
 sudo systemctl enable --now vmware-networks.service
 sudo systemctl enable --now vmware-usbarbitrator.service
-sudo systemctl enable --now vmware-hostd.service
 echo "mks.gl.allowBlacklistedDrivers = TRUE" >> $HOME/.vmware/preferences
 # QEMU/KVM
 yay -Syu qemu-full libvirt dnsmasq openbsd-netcat virt-manager virt-viewer vde2 bridge-utils ebtables libguestfs
@@ -153,8 +153,12 @@ fi
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 sudo usermod -aG libvirt $(whoami)
-newgrp libvirt
+sudo usermod -aG qemu $(whoami)
 sudo systemctl enable --now libvirtd
+# GNS3
+yay -Syu --noconfirm ubridge virtualbox-sdk wireshark-qt vpcs dynamips gns3-server gns3-gui
+sudo usermod -aG wireshark $(whoami)
+sudo systemctl enable --now gns3-server@$(whoami)
 
 
 #####################
