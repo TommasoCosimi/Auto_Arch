@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check that the File name has been passed as an argument to the program
+if [[ "$1" == "" ]]; then
+	echo "You have to give the file name."
+	exit
+fi
+
+# File with absolute path
+file="${pwd} ${1}"
+
+# Request the password of the PDF File
+read -p "Unlock Password: " pass
+
+# Unlock the PDF
+qpdf --password=$pass --decrypt --replace-input $file

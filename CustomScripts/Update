@@ -1,0 +1,5 @@
+#!/bin/bash
+clear
+yay -Syu --noconfirm
+flatpak update -y
+rustup update
