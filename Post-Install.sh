@@ -250,7 +250,6 @@ bash ./CustomConfigs/widevine-install.sh
 # Appimage Applications
 #######################
 mkdir /media/AppImages
-wget https://github.com/AppImageCommunity/AppImageUpdate/releases/download/2.0.0-alpha-1-20241225/AppImageUpdate-x86_64.AppImage -P /media/AppImages
 wget https://github.com/olive-editor/olive/releases/download/0.2.0-nightly/Olive-8ac191ce-Linux-x86_64.AppImage -P /media/AppImages
 chmod +x /media/AppImages/*.AppImage
-/media/AppImages/*.AppImage --install
+/media/AppImages/*.AppImage
