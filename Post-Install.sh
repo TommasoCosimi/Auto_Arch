@@ -38,15 +38,15 @@ export PATH=$PATH:$HOME/.CustomScripts
 
 # Customize Prompt
 # Colors
-BLACK="\e[1;30m"
-RED="\e[1;31m"
-GREEN="\e[1;32m"
-YELLOW="\e[1;33m"
-BLUE="\e[1;34m"
-MAGENTA="\e[1;35m"
-CYAN="\e[1;36m"
-WHITE="\e[1;37m"
-RESET="\e[0m"
+BLACK=\"\e[1;30m\"
+RED=\"\e[1;31m\"
+GREEN=\"\e[1;32m\"
+YELLOW=\"\e[1;33m\"
+BLUE=\"\e[1;34m\"
+MAGENTA=\"\e[1;35m\"
+CYAN=\"\e[1;36m\"
+WHITE=\"\e[1;37m\"
+RESET=\"\e[0m\"
 # Prompt
 PS1="${GREEN}[\u@\h]${RESET} \w \$ "
 
@@ -156,6 +156,7 @@ sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/
 sudo usermod -aG libvirt $(whoami)
 sudo usermod -aG qemu $(whoami)
 sudo systemctl enable --now libvirtd
+sudo virsh net-autostart default
 # GNS3
 yay -Syu --noconfirm ubridge virtualbox-sdk wireshark-qt vpcs dynamips gns3-server gns3-gui
 sudo usermod -aG wireshark $(whoami)
