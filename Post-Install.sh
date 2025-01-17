@@ -48,7 +48,7 @@ CYAN=\"\e[1;36m\"
 WHITE=\"\e[1;37m\"
 RESET=\"\e[0m\"
 # Prompt
-PS1=\"${GREEN}[\\u@\\h]${RESET} \\w \\$ \"
+PS1=\"\${GREEN}[\\u@\\h]\${RESET} \\w \\$ \"
 
 fastfetch" >> $HOME/.bashrc
 
