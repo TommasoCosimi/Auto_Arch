@@ -166,7 +166,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ###################
 # End of first part
 ###################
-cp /Auto_Arch/Chroot_Subsection.sh /mnt/Chroot_Subsection.sh
+cp /root/Auto_Arch/Chroot_Subsection.sh /mnt/Chroot_Subsection.sh
 arch-chroot /mnt /Chroot_Subsection.sh $os_partition
 rm -r /mnt/Chroot_Subsection.sh
 umount -R /mnt
