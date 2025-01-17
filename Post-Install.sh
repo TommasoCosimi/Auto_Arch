@@ -240,7 +240,6 @@ flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 # Set up Ungoogled Chromium
 ###########################
 flatpak run io.github.ungoogled_software.ungoogled_chromium
-flatpak kill io.github.ungoogled_software.ungoogled_chromium
 cp ./CustomConfigs/chromium-flags.conf $HOME/.var/app/io.github.ungoogled_software.ungoogled_chromium/config/
 wget https://raw.githubusercontent.com/ungoogled-software/ungoogled-chromium-flatpak/master/widevine-install.sh -P ./CustomConfigs
 chmod +x ./CustomConfigs/widevine-install.sh
