@@ -8,6 +8,8 @@ sudo ufw allow 631/tcp
 # Allow KDEConnect
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
+# Allow LocalSend
+sudo ufw allow 53317:53317/tcp
 
 
 #########################################
@@ -200,6 +202,7 @@ flatpak -y install flathub com.github.Eloston.UngoogledChromium
 flatpak -y install flathub io.gitlab.librewolf-community
 flatpak -y install flathub org.keepassxc.KeePassXC
 flatpak -y install flathub com.bitwarden.desktop
+flatpak -y install flathub org.localsend.localsend_app
 flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub-beta com.discordapp.DiscordCanary
 flatpak -y install flathub org.libreoffice.LibreOffice
