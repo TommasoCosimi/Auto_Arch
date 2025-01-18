@@ -124,7 +124,7 @@ When=PostTransaction
 NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'" > /etc/pacman.d/hooks/nvidia.hook
 fi
-pacman -Syu --noconfirm libva-utils vdpauinfo vulkan-tools
+pacman -Syu --noconfirm libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
 
 
 ############
