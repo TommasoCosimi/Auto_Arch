@@ -101,10 +101,11 @@ fi
 lspci | grep VGA | grep NVIDIA
 if [ $? -eq 0 ]; then
     echo "You have an NVIDIA GPU."
-    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver lib32-libva-nvidia-driver nvidia-smi
+    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=nvidia
 VDPAU_DRIVER=nvidia" > /etc/environment
+    mkdir /etc/pacman.d/hooks/
     echo "[Trigger]
 Operation=Install
 Operation=Upgrade
