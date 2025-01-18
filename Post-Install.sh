@@ -164,7 +164,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant zerotier-one nextcloud-client qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance zerotier-one nextcloud-client qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 
 
