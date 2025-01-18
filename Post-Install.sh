@@ -24,7 +24,7 @@ sudo systemctl enable --now snapper-cleanup.timer
 sudo systemctl enable --now grub-btrfsd
 sudo snapper --config root create --description "First Root Snapshot" --cleanup-algorithm timeline
 sudo snapper --config home create --description "First Home Snapshot" --cleanup-algorithm timeline
-yay -Syu --noconfirm snap-pac
+sudo pacman -Syu --noconfirm snap-pac
 
 
 ####################
@@ -48,9 +48,7 @@ CYAN=\"\e[1;36m\"
 WHITE=\"\e[1;37m\"
 RESET=\"\e[0m\"
 # Prompt
-PS1=\"\${GREEN}[\\u@\\h]\${RESET} \\w \\$ \"
-
-fastfetch" >> $HOME/.bashrc
+PS1=\"\${GREEN}[\\u@\\h]\${RESET} \\w \\$ \"" >> $HOME/.bashrc
 
 
 ############
@@ -101,15 +99,15 @@ yay -Syu --noconfirm flatpak-builder
 # Dev Tools
 ###########
 # C
-sudo pacman -Syu --noconfirm gcc make cmake extra-cmake-modules ninja
+yay -Syu --noconfirm gcc make cmake extra-cmake-modules ninja
 # Java
-sudo pacman -Syu --noconfirm jdk-openjdk
+yay -Syu --noconfirm jdk-openjdk
 # Python
-sudo pacman -Syu --noconfirm python
+yay -Syu --noconfirm python
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # LaTeX
-sudo pacman -Syu --noconfirm texlive texlive-lang biber
+yay -Syu --noconfirm texlive texlive-lang biber
 # IDEs
 yay -Syu --noconfirm visual-studio-code-bin jetbrains-toolbox arduino-ide
 
@@ -118,7 +116,7 @@ yay -Syu --noconfirm visual-studio-code-bin jetbrains-toolbox arduino-ide
 # Containerization
 ##################
 # Podman
-sudo pacman -Syu --noconfirm podman podman-compose
+yay -Syu --noconfirm podman podman-compose
 # Docker
 yay -Syu --noconfirm docker docker-compose docker-desktop
 sudo usermod -aG docker $(whoami)
@@ -131,7 +129,7 @@ yay -Syu --noconfirm distrobox
 # Virtualization Tools
 ######################
 # VirtualBox
-yay -Syu virtualbox virtualbox-host-modules-arch virtualbox-guest-iso virtualbox-ext-oracle
+yay -Syu virtualbox virtualbox-guest-iso virtualbox-ext-oracle
 sudo usermod -aG vboxusers $(whoami)
 # VMware
 yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vmware-workstation
@@ -166,7 +164,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm zerotier-one nextcloud-client qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
+yay -Syu --noconfirm btrfs-assistant zerotier-one nextcloud-client qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 
 
@@ -194,8 +192,6 @@ flatpak -y install flathub org.keepassxc.KeePassXC
 flatpak -y install flathub com.bitwarden.desktop
 flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub-beta com.discordapp.DiscordCanary
-flatpak -y install flathub com.github.reds.LogisimEvolution
-flatpak -y install flathub com.usebottles.bottles
 flatpak -y install flathub org.libreoffice.LibreOffice
 flatpak -y install flathub org.onlyoffice.desktopeditors
 flatpak -y install flathub com.github.xournalpp.xournalpp
@@ -205,6 +201,7 @@ flatpak -y install flathub org.qownnotes.QOwnNotes
 flatpak -y install flathub org.octave.Octave
 flatpak -y install flathub org.texstudio.TeXstudio
 flatpak -y install flathub net.xm1math.Texmaker
+flatpak -y install flathub org.kicad.KiCad
 flatpak -y install flathub org.freecadweb.FreeCAD
 flatpak -y install flathub org.librecad.librecad
 flatpak -y install flathub com.jgraph.drawio.desktop
@@ -217,9 +214,9 @@ flatpak -y install flathub org.kde.krita
 flatpak -y install flathub org.blender.Blender
 flatpak -y install flathub org.kde.kdenlive
 flatpak -y install flathub fr.handbrake.ghb
-flatpak -y install flathub org.audacityteam.Audacity
-flatpak -y install flathub com.spotify.Client
+flatpak -y install flathub org.tenacityaudio.Tenacity
 flatpak -y install flathub com.obsproject.Studio
+flatpak -y install flathub com.spotify.Client
 flatpak -y install flathub com.valvesoftware.Steam
 flatpak -y install flathub net.lutris.Lutris
 flatpak -y install flathub com.heroicgameslauncher.hgl
@@ -239,7 +236,8 @@ flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 ###########################
 # Set up Ungoogled Chromium
 ###########################
-flatpak run io.github.ungoogled_software.ungoogled_chromium
+flatpak run io.github.ungoogled_software.ungoogled_chromium &
+flatpak kill io.github.ungoogled_software.ungoogled_chromium
 cp ./CustomConfigs/chromium-flags.conf $HOME/.var/app/io.github.ungoogled_software.ungoogled_chromium/config/
 wget https://raw.githubusercontent.com/ungoogled-software/ungoogled-chromium-flatpak/master/widevine-install.sh -P ./CustomConfigs
 chmod +x ./CustomConfigs/widevine-install.sh
