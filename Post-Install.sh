@@ -118,7 +118,7 @@ yay -Syu --noconfirm visual-studio-code-bin jetbrains-toolbox arduino-ide
 # Podman
 yay -Syu --noconfirm podman podman-compose
 # Docker
-yay -Syu --noconfirm docker docker-compose docker-desktop
+yay -Syu --noconfirm docker docker-compose
 sudo usermod -aG docker $(whoami)
 sudo systemctl enable --now docker.service
 # Tools
