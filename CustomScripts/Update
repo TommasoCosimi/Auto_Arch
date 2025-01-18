@@ -1,5 +1,5 @@
 #!/bin/bash
 clear
-yay -Syu --noconfirm
+yay -Syyu --noconfirm
 flatpak update -y
 rustup update
