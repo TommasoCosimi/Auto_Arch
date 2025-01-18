@@ -143,7 +143,7 @@ mount_drives() {
     mkdir /mnt/boot/efi
     mount $esp_partition /mnt/boot/efi
 }
-# Check if the OS Partition is encrypted or not and mount consequently
+# Check if the OS Partition is encrypted or not and mount accordingly
 if [ $crypt_setup -eq 1 ]; then
     mount_drives $decrypted_os_partition
 else
