@@ -193,11 +193,6 @@ systemctl enable sddm
 systemctl enable cups
 systemctl enable cpupower
 systemctl enable NetworkManager
-# Allow CUPS
-ufw allow 631/tcp
-# Allow KDEConnect
-ufw allow 1714:1764/udp
-ufw allow 1714:1764/tcp
 
 
 ##############

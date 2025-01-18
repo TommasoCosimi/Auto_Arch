@@ -1,9 +1,19 @@
 #!/bin/bash
 
+################
+# Firewall Setup
+################
+# Allow CUPS
+sudo ufw allow 631/tcp
+# Allow KDEConnect
+sudo ufw allow 1714:1764/udp
+sudo ufw allow 1714:1764/tcp
+
+
 #########################################
 # Use the correct Keyboard Layout on SDDM
 #########################################
-localectl set-keymap it
+sudo localectl set-keymap it
 
 
 #######################
