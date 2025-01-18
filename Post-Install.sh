@@ -82,8 +82,7 @@ sudo systemctl enable systemd-zram-setup@zram0.service
 sudo fallocate -l 32G /swap/swapfile0
 sudo chmod 600 /swap/swapfile0
 sudo mkswap /swap/swapfile0
-echo "
-# Swapfile
+echo "# Swapfile
 /swap/swapfile0 none swap sw 0 0" | sudo tee -a /etc/fstab
 
 
