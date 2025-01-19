@@ -8,8 +8,6 @@ sudo ufw allow 631/tcp
 # Allow KDEConnect
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
-# Allow LocalSend
-sudo ufw allow 53317:53317/tcp
 
 
 #########################################
@@ -175,7 +173,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
 
@@ -183,6 +181,7 @@ sudo systemctl enable --now syncthing@$(whoami)
 ##########################
 # Flatpak KDE Applications
 ##########################
+flatpak -y install flathub org.kde.kwrite
 flatpak -y install flathub org.kde.kdevelop
 flatpak -y install flathub org.kde.krdc
 flatpak -y install flathub org.kde.okular
@@ -198,7 +197,7 @@ flatpak -y install flathub org.gtk.Gtk3theme.Breeze
 ###########################
 # Flatpak Misc Applications
 ###########################
-flatpak -y install flathub com.github.Eloston.UngoogledChromium
+flatpak -y install flathub io.github.ungoogled_software.ungoogled_chromium
 flatpak -y install flathub io.gitlab.librewolf-community
 flatpak -y install flathub org.keepassxc.KeePassXC
 flatpak -y install flathub com.bitwarden.desktop
