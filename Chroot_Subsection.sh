@@ -145,11 +145,17 @@ mkinitcpio -P
 ######
 # GRUB
 ######
+# If the OS resides in an encrypted partition, also add the cryptdevice setup
 decrypted_os_partition="$1"
 pacman -Syu --noconfirm grub efibootmgr inotify-tools grub-btrfs
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=2/g' /etc/default/grub
-sed -i "s|^GRUB_CMDLINE_LINUX_DEFAULT=\".*\"|GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 cryptdevice=${decrypted_os_partition}:Arch_LUKS Arch_LUKS=/dev/mapper/Arch_LUKS ${iommu_module}=on\"|" /etc/default/grub
+lsblk | grep LUKS
+if [ $? -eq 0 ]; then
+    sed -i "s|^GRUB_CMDLINE_LINUX_DEFAULT=\".*\"|GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 cryptdevice=${decrypted_os_partition}:Arch_LUKS Arch_LUKS=/dev/mapper/Arch_LUKS ${iommu_module}=on\"|" /etc/default/grub
+else
+    sed -i "s|^GRUB_CMDLINE_LINUX_DEFAULT=\".*\"|GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 ${iommu_module}=on\"|" /etc/default/grub
+fi
 sed -i 's/#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/g' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
