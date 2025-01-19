@@ -8,6 +8,8 @@ sudo ufw allow 631/tcp
 # Allow KDEConnect
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
+# Allow LocalSend
+sudo ufw allow 53317/tcp
 
 
 #########################################
