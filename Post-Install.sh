@@ -10,6 +10,16 @@ sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
 # Allow LocalSend
 sudo ufw allow 53317/tcp
+# Allow Syncthing
+sudo ufw allow syncthing
+# Allow UXPlay
+sudo ufw allow 5353/udp # DNS/SD
+sudo ufw allow 7000/tcp ########
+sudo ufw allow 7001/tcp # Legacy
+sudo ufw allow 7100/tcp # ports
+sudo ufw allow 6000/udp # to be
+sudo ufw allow 6001/udp # used
+sudo ufw allow 7011/udp ########
 
 
 #########################################
@@ -175,7 +185,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin game-devices-udev oversteer fastfetch
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
 
