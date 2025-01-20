@@ -1,0 +1,3 @@
+#!/bin/bash
+
+uxplay -p -fs -h265 -fps 60
