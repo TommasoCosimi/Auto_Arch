@@ -195,7 +195,7 @@ ufw enable
 #################
 # DE Installation
 #################
-pacman -Syu --noconfirm plasma dolphin konsole ark kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
+pacman -Syu --noconfirm plasma dolphin konsole ark partitionmanager kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
 systemctl enable sddm
 systemctl enable cups
 systemctl enable cpupower
