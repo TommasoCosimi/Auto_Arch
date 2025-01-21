@@ -188,6 +188,8 @@ sudo systemctl enable --now gns3-server@$(whoami)
 yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay game-devices-udev oversteer fastfetch koi
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
+sudo systemctl enable --now avahi-daemon
+sudo systemctl enable --now avahi-dnsconfd
 
 
 ##########################
