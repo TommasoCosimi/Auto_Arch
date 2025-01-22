@@ -20,6 +20,9 @@ sudo ufw allow 7100/tcp # ports
 sudo ufw allow 6000/udp # to be
 sudo ufw allow 6001/udp # used
 sudo ufw allow 7011/udp ########
+# Allow Weylus
+sudo ufw allow 1701/tcp
+sudo ufw allow 9001/tcp
 
 
 #########################################
@@ -185,11 +188,14 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay game-devices-udev oversteer fastfetch koi
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay weylus-bin game-devices-udev oversteer fastfetch koi
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
 sudo systemctl enable --now avahi-daemon
 sudo systemctl enable --now avahi-dnsconfd
+sudo groupadd -r uinput
+sudo usermod -aG uinput $(whoami)
+echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee /etc/udev/rules.d/60-weylus.rules
 
 
 ##########################
@@ -205,6 +211,7 @@ flatpak -y install flathub org.kde.kile
 flatpak -y install flathub org.kde.kclock
 flatpak -y install flathub org.kde.marknote
 flatpak -y install flathub org.kde.kalk
+flatpak -y install flathub org.kde.calligra
 flatpak -y install flathub org.gtk.Gtk3theme.Breeze
 
 
