@@ -17,6 +17,13 @@ git clone https://github.com/TommasoCosimi/Auto_Arch
 
 After that, follow the on-screen instructions.
 
+After the reboot, launch the Post-Install Script:
+
+```shell
+git clone https://github.com/TommasoCosimi/Auto_Arch
+./Auto_Arch/Post-Install.sh
+```
+
 
 ## Features
 
