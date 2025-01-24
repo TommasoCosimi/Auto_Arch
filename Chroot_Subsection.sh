@@ -83,7 +83,7 @@ fi
 lspci | grep VGA | grep Intel
 if [ $? -eq 0 ]; then
     echo "You have an Intel GPU."
-    pacman -Syu --noconfirm mesa lib32-mesa intel-media-driver lib32-intel-media-driver vulkan-intel lib32-vulkan-intel intel-gpu-tools
+    pacman -Syu --noconfirm mesa lib32-mesa intel-media-driver lib32-intel-media-driver vulkan-intel lib32-vulkan-intel opencl-clover-mesa lib32-opencl-clover-mesa opencl-rusticl-mesa lib32-opencl-rusticl-mesa intel-compute-runtime intel-gpu-tools
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=i965
 VDPAU_DRIVER=va_gl" > /etc/environment
@@ -92,7 +92,7 @@ fi
 lspci | grep VGA | grep AMD
 if [ $? -eq 0 ]; then
     echo "You have an AMD GPU."
-    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon radeontop
+    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon opencl-clover-mesa lib32-opencl-clover-mesa opencl-rusticl-mesa lib32-opencl-rusticl-mesa rocm-opencl-runtime radeontop
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=radeonsi
 VDPAU_DRIVER=radeonsi" > /etc/environment
@@ -101,7 +101,7 @@ fi
 lspci | grep VGA | grep NVIDIA
 if [ $? -eq 0 ]; then
     echo "You have an NVIDIA GPU."
-    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver
+    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver opencl-nvidia lib32-opencl-nvidia
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=nvidia
 VDPAU_DRIVER=nvidia" > /etc/environment
