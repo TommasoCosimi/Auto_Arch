@@ -229,6 +229,7 @@ flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub-beta com.discordapp.DiscordCanary
 flatpak -y install flathub org.libreoffice.LibreOffice
 flatpak -y install flathub org.onlyoffice.desktopeditors
+flatpak -y install flathub com.logseq.Logseq
 flatpak -y install flathub com.github.xournalpp.xournalpp
 flatpak -y install flathub com.github.flxzt.rnote
 flatpak -y install flathub ch.openboard.OpenBoard
