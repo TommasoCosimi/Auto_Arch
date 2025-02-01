@@ -212,6 +212,7 @@ flatpak -y install flathub org.kde.kclock
 flatpak -y install flathub org.kde.marknote
 flatpak -y install flathub org.kde.kalk
 flatpak -y install flathub org.kde.calligra
+flatpak -y install flathub org.kde.kalgebra
 flatpak -y install flathub org.kde.isoimagewriter
 flatpak -y install flathub org.gtk.Gtk3theme.Breeze
 
