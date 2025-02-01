@@ -196,7 +196,7 @@ ufw enable
 #################
 # DE Installation
 #################
-pacman -Syu --noconfirm plasma dolphin konsole krfb ark partitionmanager fcitx5-im kcm-fcitx5 kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
+pacman -Syu --noconfirm plasma dolphin konsole spctacle krfb ark partitionmanager fcitx5-im kcm-fcitx5 kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
 systemctl enable sddm
 systemctl enable cups
 systemctl enable cpupower
@@ -206,4 +206,4 @@ systemctl enable NetworkManager
 ##############
 # Useful tools
 ##############
-pacman -Syu --noconfirm rclone rsync wget bash-completion stress s-tui github-cli
+pacman -Syu --noconfirm rclone rsync wget bash-completion stress s-tui github-cli htop btop
