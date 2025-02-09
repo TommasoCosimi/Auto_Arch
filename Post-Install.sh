@@ -175,6 +175,7 @@ else
 fi
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
+echo 'firewall_backend = "iptables"' | sudo tee /etc/libvirt/network.conf
 sudo usermod -aG libvirt $(whoami)
 sudo usermod -aG qemu $(whoami)
 sudo systemctl enable --now libvirtd
