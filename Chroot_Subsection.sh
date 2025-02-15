@@ -148,7 +148,7 @@ mkinitcpio -P
 ######
 # If the OS resides in an encrypted partition, also add the cryptdevice setup
 decrypted_os_partition="$1"
-pacman -Syu --noconfirm grub efibootmgr inotify-tools grub-btrfs
+pacman -Syu --noconfirm grub efibootmgr os-prober inotify-tools grub-btrfs
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=2/g' /etc/default/grub
 lsblk | grep LUKS
