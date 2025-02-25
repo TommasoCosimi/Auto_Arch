@@ -235,6 +235,7 @@ flatpak -y install flathub com.github.xournalpp.xournalpp
 flatpak -y install flathub com.github.flxzt.rnote
 flatpak -y install flathub ch.openboard.OpenBoard
 flatpak -y install flathub org.qownnotes.QOwnNotes
+flatpak -y install flathub com.zettlr.Zettlr
 flatpak -y install flathub org.octave.Octave
 flatpak -y install flathub org.texstudio.TeXstudio
 flatpak -y install flathub net.xm1math.Texmaker
