@@ -189,7 +189,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay lib32-glu weylus-bin solaar game-devices-udev oversteer fastfetch koi
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay lib32-glu weylus-bin solaar game-devices-udev oversteer fastfetch koi
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
 sudo systemctl enable --now avahi-daemon
