@@ -206,4 +206,4 @@ systemctl enable NetworkManager
 ##############
 # Useful tools
 ##############
-pacman -Syu --noconfirm rclone rsync wget bash-completion stress s-tui github-cli htop btop
+pacman -Syu --noconfirm rclone rsync wget bash-completion stress s-tui github-cli htop btop man more less
