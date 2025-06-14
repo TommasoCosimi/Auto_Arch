@@ -196,8 +196,28 @@ ufw enable
 #################
 # DE Installation
 #################
-pacman -Syu --noconfirm plasma dolphin konsole spectacle krfb ark partitionmanager fcitx5-im kcm-fcitx5 kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
-systemctl enable sddm
+while :
+do
+    echo "Which Desktop Environment do you want to install?"
+    echo "1. GNOME"
+    echo "2. Plasma"
+    read -p "[1/2] " de
+    if [[ "$de" = "1" ]]; then
+        echo "Installing GNOME"
+        pacman -Syu --noconfirm gnome gnome-tweaks cpupower power-profiles-daemon gvfs gvfs-smb cifs-utils sshfs cups gst-plugin-pipewire
+        pacman -R --noconfirm gnome-calendar gnome-characters gnome-clocks gnome-connections gnome-contacts gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-text-editor gnome-tour gnome-weather loupe simple-scan snapshot totem
+        systemctl enable gdm
+
+        break
+    elif [[ "$de" = "2" ]]; then
+        echo "Installing Plasma"
+        pacman -Syu --noconfirm plasma dolphin konsole spectacle krfb ark partitionmanager fcitx5-im kcm-fcitx5 kde-gtk-config breeze-gtk print-manager cups system-config-printer kaccounts-providers kio-gdrive kdenetwork-filesharing gvfs gvfs-smb cifs-utils kde-pim kdepim-addons kdeconnect sshfs xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-user-dirs cpupower power-profiles-daemon
+        systemctl enable sddm
+        break
+    else
+        echo "Option not supported. Use 1 to install GNOME or 2 to install Plasma."
+    fi
+done
 systemctl enable cups
 systemctl enable cpupower
 systemctl enable NetworkManager

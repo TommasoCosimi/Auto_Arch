@@ -5,24 +5,13 @@
 ################
 # Allow CUPS
 sudo ufw allow 631/tcp
-# Allow KDEConnect
+# Allow KDEConnect/GSConnect
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
 # Allow LocalSend
 sudo ufw allow 53317/tcp
 # Allow Syncthing
 sudo ufw allow syncthing
-# Allow UXPlay
-sudo ufw allow 5353/udp # DNS/SD
-sudo ufw allow 7000/tcp ########
-sudo ufw allow 7001/tcp # Legacy
-sudo ufw allow 7100/tcp # ports
-sudo ufw allow 6000/udp # to be
-sudo ufw allow 6001/udp # used
-sudo ufw allow 7011/udp ########
-# Allow Weylus
-sudo ufw allow 1701/tcp
-sudo ufw allow 9001/tcp
 
 
 #########################################
@@ -47,8 +36,6 @@ sudo snapper -c home set-config ALLOW_GROUPS=wheel SYNC_ACL=yes TIMELINE_LIMIT_H
 sudo systemctl enable --now snapper-timeline.timer
 sudo systemctl enable --now snapper-cleanup.timer
 sudo systemctl enable --now grub-btrfsd
-sudo snapper --config root create --description "First Root Snapshot" --cleanup-algorithm timeline
-sudo snapper --config home create --description "First Home Snapshot" --cleanup-algorithm timeline
 sudo pacman -Syu --noconfirm snap-pac
 
 
@@ -59,21 +46,7 @@ mkdir $HOME/.CustomScripts
 cp -r ./CustomScripts/* $HOME/.CustomScripts
 echo "
 # Add Custom Scripts folder to PATH
-export PATH=$PATH:$HOME/.CustomScripts
-
-# Customize Prompt
-# Colors
-BLACK=\"\e[1;30m\"
-RED=\"\e[1;31m\"
-GREEN=\"\e[1;32m\"
-YELLOW=\"\e[1;33m\"
-BLUE=\"\e[1;34m\"
-MAGENTA=\"\e[1;35m\"
-CYAN=\"\e[1;36m\"
-WHITE=\"\e[1;37m\"
-RESET=\"\e[0m\"
-# Prompt
-PS1=\"\${GREEN}[\\u@\\h]\${RESET} \\w \\$ \"" >> $HOME/.bashrc
+export PATH=$PATH:$HOME/.CustomScripts" >> $HOME/.bashrc
 
 
 ############
@@ -97,7 +70,7 @@ echo "vm.swappiness=5" | sudo tee /etc/sysctl.d/01-swappiness.conf
 yay -Syu --noconfirm zram-generator
 echo "[zram0]
 zram-size = ram
-compression-algorithm = zstd" | sudo tee /etc/systemd/zram-generator.conf
+compression-algorithm = lzo-rle" | sudo tee /etc/systemd/zram-generator.conf
 sudo systemctl enable systemd-zram-setup@zram0.service
 
 
@@ -189,33 +162,64 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape appimagelauncher-bin uxplay lib32-glu weylus-bin solaar game-devices-udev oversteer fastfetch koi
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
-sudo systemctl enable --now avahi-daemon
-sudo systemctl enable --now avahi-dnsconfd
-sudo groupadd -r uinput
-sudo usermod -aG uinput $(whoami)
-echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | sudo tee /etc/udev/rules.d/60-weylus.rules
 
 
 ##########################
-# Flatpak KDE Applications
+# Flatpaks for the Desktop
 ##########################
-flatpak -y install flathub org.kde.kwrite
-flatpak -y install flathub org.kde.kdevelop
-flatpak -y install flathub org.kde.krdc
-flatpak -y install flathub org.kde.okular
-flatpak -y install flathub io.github.wereturtle.ghostwriter
-flatpak -y install flathub org.kde.gwenview
-flatpak -y install flathub org.kde.kile
-flatpak -y install flathub org.kde.kclock
-flatpak -y install flathub org.kde.marknote
-flatpak -y install flathub org.kde.kalk
-flatpak -y install flathub org.kde.calligra
-flatpak -y install flathub org.kde.kalgebra
-flatpak -y install flathub org.kde.isoimagewriter
-flatpak -y install flathub org.gtk.Gtk3theme.Breeze
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
+    echo "Installing GNOME Apps as Flatpaks"
+    flatpak -y install flathub ca.desrt.dconf-editor
+    flatpak -y install flathub io.github.giantpinkrobots.flatsweep
+    flatpak -y install flathub net.nokyan.Resources
+    flatpak -y install flathub org.gabmus.hydrapaper
+    flatpak -y install flathub org.gnome.Boxes
+    flatpak -y install flathub org.gnome.Builder
+    flatpak -y install flathub org.gnome.Calculator
+    flatpak -y install flathub org.gnome.Calendar
+    flatpak -y install flathub org.gnome.clocks
+    flatpak -y install flathub org.gnome.Connections
+    flatpak -y install flathub org.gnome.Contacts
+    flatpak -y install flathub org.gnome.Decibels
+    flatpak -y install flathub org.gnome.Epiphany
+    flatpak -y install flathub org.gnome.Extensions
+    flatpak -y install flathub com.mattjakeman.ExtensionManager
+    flatpak -y install flathub org.gnome.font-viewer
+    flatpak -y install flathub org.gnome.Logs
+    flatpak -y install flathub org.gnome.Loupe
+    flatpak -y install flathub org.gnome.Maps
+    flatpak -y install flathub org.gnome.Music
+    flatpak -y install flathub org.gnome.NetworkDisplays
+    flatpak -y install flathub org.gnome.Papers
+    flatpak -y install flathub org.gnome.Photos
+    flatpak -y install flathub org.gnome.SimpleScan
+    flatpak -y install flathub org.gnome.Snapshot
+    flatpak -y install flathub org.gnome.SoundRecorder
+    flatpak -y install flathub org.gnome.TextEditor
+    flatpak -y install flathub org.gnome.Weather
+    flatpak -y install flathub re.sonny.Workbench
+else
+    echo "Installing KDE Apps as Flatpaks"
+    flatpak -y install flathub org.kde.kwrite
+    flatpak -y install flathub org.kde.kdevelop
+    flatpak -y install flathub org.kde.krdc
+    flatpak -y install flathub org.kde.okular
+    flatpak -y install flathub io.github.wereturtle.ghostwriter
+    flatpak -y install flathub org.kde.gwenview
+    flatpak -y install flathub org.kde.kile
+    flatpak -y install flathub org.kde.kclock
+    flatpak -y install flathub org.kde.marknote
+    flatpak -y install flathub org.kde.kalk
+    flatpak -y install flathub org.kde.calligra
+    flatpak -y install flathub org.kde.kalgebra
+    flatpak -y install flathub org.kde.isoimagewriter
+    flatpak -y install flathub org.gtk.Gtk3theme.Breeze
+    # Apply the correct theming for GTK Applications
+    flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
+fi
 
 
 ###########################
@@ -230,12 +234,10 @@ flatpak -y install flathub org.telegram.desktop
 flatpak -y install flathub-beta com.discordapp.DiscordCanary
 flatpak -y install flathub org.libreoffice.LibreOffice
 flatpak -y install flathub org.onlyoffice.desktopeditors
-flatpak -y install flathub com.logseq.Logseq
 flatpak -y install flathub com.github.xournalpp.xournalpp
 flatpak -y install flathub com.github.flxzt.rnote
 flatpak -y install flathub ch.openboard.OpenBoard
 flatpak -y install flathub org.qownnotes.QOwnNotes
-flatpak -y install flathub com.zettlr.Zettlr
 flatpak -y install flathub org.octave.Octave
 flatpak -y install flathub org.texstudio.TeXstudio
 flatpak -y install flathub net.xm1math.Texmaker
@@ -258,17 +260,10 @@ flatpak -y install flathub com.spotify.Client
 flatpak -y install flathub com.valvesoftware.Steam
 flatpak -y install flathub net.lutris.Lutris
 flatpak -y install flathub com.heroicgameslauncher.hgl
-flatpak -y install flathub org.libretro.RetroArch
 flatpak -y install flathub org.duckstation.DuckStation
 flatpak -y install flathub net.pcsx2.PCSX2
 flatpak -y install flathub org.ppsspp.PPSSPP
 flatpak -y install flathub org.DolphinEmu.dolphin-emu
-
-
-################################################
-# Apply the correct theming for GTK Applications
-################################################
-flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 
 
 ###########################
@@ -281,12 +276,3 @@ cp ./CustomConfigs/chromium-flags.conf $HOME/.var/app/io.github.ungoogled_softwa
 wget https://raw.githubusercontent.com/ungoogled-software/ungoogled-chromium-flatpak/master/widevine-install.sh -P ./CustomConfigs
 chmod +x ./CustomConfigs/widevine-install.sh
 bash ./CustomConfigs/widevine-install.sh
-
-
-#######################
-# Appimage Applications
-#######################
-mkdir /media/AppImages
-wget https://github.com/olive-editor/olive/releases/download/0.2.0-nightly/Olive-8ac191ce-Linux-x86_64.AppImage -P /media/AppImages
-chmod +x /media/AppImages/*.AppImage
-/media/AppImages/*.AppImage
