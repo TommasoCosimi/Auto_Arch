@@ -173,6 +173,7 @@ sudo systemctl enable --now syncthing@$(whoami)
 if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     echo "Installing GNOME Apps as Flatpaks"
     flatpak -y install flathub ca.desrt.dconf-editor
+    flatpak -y install flathub com.belmoussaoui.Obfuscate
     flatpak -y install flathub io.github.giantpinkrobots.flatsweep
     flatpak -y install flathub net.nokyan.Resources
     flatpak -y install flathub org.gabmus.hydrapaper
@@ -200,6 +201,8 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub org.gnome.SoundRecorder
     flatpak -y install flathub org.gnome.TextEditor
     flatpak -y install flathub org.gnome.Weather
+    flatpak -y install flathub org.gnome.World.Iotas
+    flatpak -y install flathub org.gaphor.Gaphor
     flatpak -y install flathub re.sonny.Workbench
 else
     echo "Installing KDE Apps as Flatpaks"
@@ -217,6 +220,7 @@ else
     flatpak -y install flathub org.kde.kalgebra
     flatpak -y install flathub org.kde.isoimagewriter
     flatpak -y install flathub org.gtk.Gtk3theme.Breeze
+    flatpak -y install flathub org.qownnotes.QOwnNotes
     # Apply the correct theming for GTK Applications
     flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 fi
@@ -237,7 +241,6 @@ flatpak -y install flathub org.onlyoffice.desktopeditors
 flatpak -y install flathub com.github.xournalpp.xournalpp
 flatpak -y install flathub com.github.flxzt.rnote
 flatpak -y install flathub ch.openboard.OpenBoard
-flatpak -y install flathub org.qownnotes.QOwnNotes
 flatpak -y install flathub org.octave.Octave
 flatpak -y install flathub org.texstudio.TeXstudio
 flatpak -y install flathub net.xm1math.Texmaker
