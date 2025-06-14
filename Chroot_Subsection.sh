@@ -205,7 +205,7 @@ do
     if [[ "$de" = "1" ]]; then
         echo "Installing GNOME"
         pacman -Syu --noconfirm gnome networkmanager gnome-tweaks cpupower power-profiles-daemon gvfs gvfs-smb cifs-utils sshfs cups gst-plugin-pipewire
-        pacman -R --noconfirm gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-connections gnome-contacts gnome-extensions gnome-font-viewer gnome-help gnome-logs gnome-maps gnome-music gnome-text-editor gnome-tour gnome-weather decibles loupe simple-scan snapshot totem evince
+        pacman -R --noconfirm gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-connections gnome-contacts gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-text-editor gnome-tour gnome-weather loupe simple-scan snapshot totem evince
         systemctl enable gdm
 
         break
