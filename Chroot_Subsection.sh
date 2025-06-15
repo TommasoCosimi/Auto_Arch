@@ -204,7 +204,7 @@ do
     read -p "[1/2] " de
     if [[ "$de" = "1" ]]; then
         echo "Installing GNOME"
-        pacman -Syu --noconfirm gnome networkmanager gnome-tweaks cpupower power-profiles-daemon gvfs gvfs-smb cifs-utils sshfs cups gst-plugin-pipewire
+        pacman -Syu --noconfirm gnome networkmanager gnome-tweaks cpupower power-profiles-daemon gvfs gvfs-smb cifs-utils sshfs cups gst-plugin-pipewire  adw-gtk-theme
         pacman -R --noconfirm gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-connections gnome-contacts gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-text-editor gnome-tour gnome-weather loupe simple-scan snapshot totem
         systemctl enable gdm
 
