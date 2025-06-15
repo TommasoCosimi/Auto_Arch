@@ -204,6 +204,8 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub org.gnome.World.Iotas
     flatpak -y install flathub org.gaphor.Gaphor
     flatpak -y install flathub re.sonny.Workbench
+    # Apply the correct theming for Legacy Applications
+    flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 else
     echo "Installing KDE Apps as Flatpaks"
     flatpak -y install flathub org.kde.kwrite
