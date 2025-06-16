@@ -10,8 +10,6 @@ sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp
 # Allow LocalSend
 sudo ufw allow 53317/tcp
-# Allow Syncthing
-sudo ufw allow syncthing
 
 
 #########################################
@@ -165,6 +163,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
+sudo ufw allow syncthing
 
 
 ##########################
