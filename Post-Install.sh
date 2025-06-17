@@ -160,7 +160,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch ventoy-bin
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch ventoy-bin balena-etcher
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
 sudo ufw allow syncthing
@@ -173,6 +173,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     echo "Installing GNOME Apps as Flatpaks"
     flatpak -y install flathub ca.desrt.dconf-editor
     flatpak -y install flathub com.belmoussaoui.Obfuscate
+    flatpak -y install flathub com.github.tchx84.Flatseal
     flatpak -y install flathub io.github.giantpinkrobots.flatsweep
     flatpak -y install flathub net.nokyan.Resources
     flatpak -y install flathub org.gabmus.hydrapaper
@@ -204,7 +205,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub org.gaphor.Gaphor
     flatpak -y install flathub re.sonny.Workbench
     # Apply the correct theming for Legacy Applications
-    flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+    flatpak -y install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 else
     echo "Installing KDE Apps as Flatpaks"
     flatpak -y install flathub org.kde.kwrite
