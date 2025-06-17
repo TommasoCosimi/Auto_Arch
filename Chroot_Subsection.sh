@@ -84,7 +84,7 @@ fi
 lspci | grep VGA | grep Intel
 if [ $? -eq 0 ]; then
     echo "You have an Intel GPU."
-    pacman -Syu --noconfirm mesa lib32-mesa intel-media-driver lib32-intel-media-driver vulkan-intel lib32-vulkan-intel opencl-clhpp opencl-clover-mesa lib32-opencl-clover-mesa opencl-rusticl-mesa lib32-opencl-rusticl-mesa intel-compute-runtime intel-gpu-tools
+    pacman -Syu --noconfirm mesa lib32-mesa intel-media-driver lib32-intel-media-driver vulkan-intel lib32-vulkan-intel ocl-icd opencl-headers opencl-clhpp opencl-mesa lib32-opencl-mesa intel-compute-runtime intel-gpu-tools
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=i965
 VDPAU_DRIVER=va_gl" > /etc/environment
@@ -93,7 +93,7 @@ fi
 lspci | grep VGA | grep AMD
 if [ $? -eq 0 ]; then
     echo "You have an AMD GPU."
-    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon opencl-clhpp opencl-clover-mesa lib32-opencl-clover-mesa opencl-rusticl-mesa lib32-opencl-rusticl-mesa rocm-opencl-runtime radeontop
+    pacman -Syu --noconfirm mesa lib32-mesa mesa-utils lib32-mesa-utils libvdpau-va-gl vulkan-radeon lib32-vulkan-radeon ocl-icd opencl-headers opencl-clhpp opencl-mesa lib32-opencl-mesa rocm-hip-sdk rocm-hip-runtime rocm-opencl-sdk rocm-opencl-runtime rocm-opencl-sdk radeontop
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=radeonsi
 VDPAU_DRIVER=radeonsi" > /etc/environment
@@ -102,7 +102,7 @@ fi
 lspci | grep VGA | grep NVIDIA
 if [ $? -eq 0 ]; then
     echo "You have an NVIDIA GPU."
-    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver opencl-nvidia lib32-opencl-nvidia
+    pacman -Syu --noconfirm nvidia cuda nvidia-utils lib32-nvidia-utils libva-nvidia-driver ocl-icd opencl-headers opencl-nvidia lib32-opencl-nvidia
     echo "#GPU Hardware Acceleration
 LIBVA_DRIVER_NAME=nvidia
 VDPAU_DRIVER=nvidia" > /etc/environment
@@ -126,7 +126,7 @@ When=PostTransaction
 NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'" > /etc/pacman.d/hooks/nvidia.hook
 fi
-pacman -Syu --noconfirm libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
+pacman -Syu --noconfirm libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools clinfo
 
 
 ############
