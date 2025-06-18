@@ -127,7 +127,7 @@ yay -Syu --noconfirm distrobox
 yay -Syu virtualbox virtualbox-guest-iso virtualbox-ext-oracle
 sudo usermod -aG vboxusers $(whoami)
 # VMware
-yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vmware-workstation
+yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vmware-keymaps vmware-workstation
 sudo systemctl start vmware-networks-configuration.service
 sudo systemctl enable --now vmware-networks.service
 sudo systemctl enable --now vmware-usbarbitrator.service
