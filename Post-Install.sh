@@ -174,6 +174,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub ca.desrt.dconf-editor
     flatpak -y install flathub com.belmoussaoui.Obfuscate
     flatpak -y install flathub com.github.tchx84.Flatseal
+    flatpak -y install flathub dev.qwery.AddWater
     flatpak -y install flathub io.github.giantpinkrobots.flatsweep
     flatpak -y install flathub net.nokyan.Resources
     flatpak -y install flathub org.gabmus.hydrapaper
