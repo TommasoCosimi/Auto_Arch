@@ -174,6 +174,8 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub ca.desrt.dconf-editor
     flatpak -y install flathub com.belmoussaoui.Obfuscate
     flatpak -y install flathub com.github.tchx84.Flatseal
+    flatpak -y install flathub de.haeckerfelix.Fragments
+    flatpak -y install flathub io.gitlab.adhami3310.Impression
     flatpak -y install flathub dev.qwery.AddWater
     flatpak -y install flathub io.github.giantpinkrobots.flatsweep
     flatpak -y install flathub net.nokyan.Resources
@@ -201,10 +203,12 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub org.gnome.Snapshot
     flatpak -y install flathub org.gnome.SoundRecorder
     flatpak -y install flathub org.gnome.TextEditor
+    flatpak -y install flathub org.gnome.Totem
     flatpak -y install flathub org.gnome.Weather
     flatpak -y install flathub org.gnome.World.Iotas
     flatpak -y install flathub org.gaphor.Gaphor
     flatpak -y install flathub re.sonny.Workbench
+    flatpak -y install flathub xyz.ketok.Speedtest
     # Apply the correct theming for Legacy Applications
     flatpak -y install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 else
@@ -261,7 +265,9 @@ flatpak -y install flathub org.blender.Blender
 flatpak -y install flathub org.kde.kdenlive
 flatpak -y install flathub fr.handbrake.ghb
 flatpak -y install flathub org.tenacityaudio.Tenacity
+flatpak -y install flathub org.nickvision.tubeconverter
 flatpak -y install flathub com.obsproject.Studio
+flatpak -y install flathub io.github.vmkspv.netsleuth
 flatpak -y install flathub com.spotify.Client
 flatpak -y install flathub com.valvesoftware.Steam
 flatpak -y install flathub net.lutris.Lutris
