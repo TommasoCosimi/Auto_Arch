@@ -180,7 +180,6 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y install flathub dev.qwery.AddWater
     flatpak -y install flathub io.github.giantpinkrobots.flatsweep
     flatpak -y install flathub net.nokyan.Resources
-    flatpak -y install flathub org.gabmus.hydrapaper
     flatpak -y install flathub org.gnome.Boxes
     flatpak -y install flathub org.gnome.Builder
     flatpak -y install flathub org.gnome.Calculator
