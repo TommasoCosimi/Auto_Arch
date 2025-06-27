@@ -40,7 +40,7 @@ sudo pacman -Syu --noconfirm snap-pac
 ####################
 # User Configuration
 ####################
-sed -i "/^PS1='\$$\\u@\\h \\W\$$\\$ '/d" ~/.bashrc
+sed -i "/^PS1='\$$\\u@\\h \\W\$$\\$ '/d" $HOME/.bashrc
 mkdir $HOME/.CustomScripts
 cp -r ./CustomScripts/* $HOME/.CustomScripts
 echo "
