@@ -40,9 +40,13 @@ sudo pacman -Syu --noconfirm snap-pac
 ####################
 # User Configuration
 ####################
+sed -i "/^PS1='\$$\\u@\\h \\W\$$\\$ '/d" ~/.bashrc
 mkdir $HOME/.CustomScripts
 cp -r ./CustomScripts/* $HOME/.CustomScripts
 echo "
+# Customize Prompt
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 # Add Custom Scripts folder to PATH
 export PATH=$PATH:$HOME/.CustomScripts" >> $HOME/.bashrc
 
