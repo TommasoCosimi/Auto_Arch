@@ -134,6 +134,9 @@ yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vm
 sudo systemctl start vmware-networks-configuration.service
 sudo systemctl enable --now vmware-networks.service
 sudo systemctl enable --now vmware-usbarbitrator.service
+vmplayer
+sleep 1s
+killall vmplayer
 echo "mks.gl.allowBlacklistedDrivers = TRUE" >> $HOME/.vmware/preferences
 # QEMU/KVM
 yay -Syu qemu-full libvirt dnsmasq openbsd-netcat virt-manager virt-viewer vde2 bridge-utils ebtables libguestfs
