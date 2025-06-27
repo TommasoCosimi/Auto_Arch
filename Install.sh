@@ -154,7 +154,7 @@ fi
 ##########
 # Pacstrap
 ##########
-pacstrap -K /mnt base base-devel linux linux-firmware linux-headers nano vim git tar unzip
+pacstrap -K /mnt base base-devel linux linux-firmware linux-headers nano vi vim git tar unzip
 
 
 ################################
