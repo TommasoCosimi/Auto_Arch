@@ -90,7 +90,6 @@ echo "# Swapfile
 # Enable Flatpaks (both stable and beta channels)
 #################################################
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 yay -Syu --noconfirm flatpak-builder
 
 
@@ -164,7 +163,7 @@ sudo systemctl enable --now gns3-server@$(whoami)
 #####################
 # Native Applications
 #####################
-yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip reflector zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch ventoy-bin balena-etcher
+yay -Syu --noconfirm btrfs-assistant btrfsmaintenance fwupd zip 7zip reflector zerotier-one forticlient-vpn nextcloud-client syncthing qpdf inkscape lib32-glu solaar game-devices-udev oversteer fastfetch ventoy-bin
 sudo systemctl enable --now reflector
 sudo systemctl enable --now zerotier-one
 sudo systemctl enable --now syncthing@$(whoami)
@@ -246,7 +245,7 @@ flatpak -y --noninteractive install flathub org.keepassxc.KeePassXC
 flatpak -y --noninteractive install flathub com.bitwarden.desktop
 flatpak -y --noninteractive install flathub org.localsend.localsend_app
 flatpak -y --noninteractive install flathub org.telegram.desktop
-flatpak -y --noninteractive install flathub-beta com.discordapp.DiscordCanary
+flatpak -y --noninteractive install flathub com.discordapp.Discord
 flatpak -y --noninteractive install flathub org.libreoffice.LibreOffice
 flatpak -y --noninteractive install flathub org.onlyoffice.desktopeditors
 flatpak -y --noninteractive install flathub com.github.xournalpp.xournalpp
