@@ -176,62 +176,62 @@ sudo ufw allow syncthing
 ##########################
 if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     echo "Installing GNOME Apps as Flatpaks"
-    flatpak -y install flathub ca.desrt.dconf-editor
-    flatpak -y install flathub com.belmoussaoui.Obfuscate
-    flatpak -y install flathub com.github.tchx84.Flatseal
-    flatpak -y install flathub de.haeckerfelix.Fragments
-    flatpak -y install flathub io.gitlab.adhami3310.Impression
-    flatpak -y install flathub dev.qwery.AddWater
-    flatpak -y install flathub io.github.giantpinkrobots.flatsweep
-    flatpak -y install flathub net.nokyan.Resources
-    flatpak -y install flathub org.gnome.Boxes
-    flatpak -y install flathub org.gnome.Builder
-    flatpak -y install flathub org.gnome.Calculator
-    flatpak -y install flathub org.gnome.Calendar
-    flatpak -y install flathub org.gnome.clocks
-    flatpak -y install flathub org.gnome.Connections
-    flatpak -y install flathub org.gnome.Contacts
-    flatpak -y install flathub org.gnome.Decibels
-    flatpak -y install flathub org.gnome.Epiphany
-    flatpak -y install flathub org.gnome.Extensions
-    flatpak -y install flathub com.mattjakeman.ExtensionManager
-    flatpak -y install flathub org.gnome.font-viewer
-    flatpak -y install flathub org.gnome.Logs
-    flatpak -y install flathub org.gnome.Loupe
-    flatpak -y install flathub org.gnome.Maps
-    flatpak -y install flathub org.gnome.Music
-    flatpak -y install flathub org.gnome.NetworkDisplays
-    flatpak -y install flathub org.gnome.Papers
-    flatpak -y install flathub org.gnome.Photos
-    flatpak -y install flathub org.gnome.SimpleScan
-    flatpak -y install flathub org.gnome.Snapshot
-    flatpak -y install flathub org.gnome.SoundRecorder
-    flatpak -y install flathub org.gnome.TextEditor
-    flatpak -y install flathub org.gnome.Totem
-    flatpak -y install flathub org.gnome.Weather
-    flatpak -y install flathub org.gnome.World.Iotas
-    flatpak -y install flathub org.gaphor.Gaphor
-    flatpak -y install flathub re.sonny.Workbench
-    flatpak -y install flathub xyz.ketok.Speedtest
+    flatpak -y --noninteractive install flathub ca.desrt.dconf-editor
+    flatpak -y --noninteractive install flathub com.belmoussaoui.Obfuscate
+    flatpak -y --noninteractive install flathub com.github.tchx84.Flatseal
+    flatpak -y --noninteractive install flathub de.haeckerfelix.Fragments
+    flatpak -y --noninteractive install flathub io.gitlab.adhami3310.Impression
+    flatpak -y --noninteractive install flathub dev.qwery.AddWater
+    flatpak -y --noninteractive install flathub io.github.giantpinkrobots.flatsweep
+    flatpak -y --noninteractive install flathub net.nokyan.Resources
+    flatpak -y --noninteractive install flathub org.gnome.Boxes
+    flatpak -y --noninteractive install flathub org.gnome.Builder
+    flatpak -y --noninteractive install flathub org.gnome.Calculator
+    flatpak -y --noninteractive install flathub org.gnome.Calendar
+    flatpak -y --noninteractive install flathub org.gnome.clocks
+    flatpak -y --noninteractive install flathub org.gnome.Connections
+    flatpak -y --noninteractive install flathub org.gnome.Contacts
+    flatpak -y --noninteractive install flathub org.gnome.Decibels
+    flatpak -y --noninteractive install flathub org.gnome.Epiphany
+    flatpak -y --noninteractive install flathub org.gnome.Extensions
+    flatpak -y --noninteractive install flathub com.mattjakeman.ExtensionManager
+    flatpak -y --noninteractive install flathub org.gnome.font-viewer
+    flatpak -y --noninteractive install flathub org.gnome.Logs
+    flatpak -y --noninteractive install flathub org.gnome.Loupe
+    flatpak -y --noninteractive install flathub org.gnome.Maps
+    flatpak -y --noninteractive install flathub org.gnome.Music
+    flatpak -y --noninteractive install flathub org.gnome.NetworkDisplays
+    flatpak -y --noninteractive install flathub org.gnome.Papers
+    flatpak -y --noninteractive install flathub org.gnome.Photos
+    flatpak -y --noninteractive install flathub org.gnome.SimpleScan
+    flatpak -y --noninteractive install flathub org.gnome.Snapshot
+    flatpak -y --noninteractive install flathub org.gnome.SoundRecorder
+    flatpak -y --noninteractive install flathub org.gnome.TextEditor
+    flatpak -y --noninteractive install flathub org.gnome.Totem
+    flatpak -y --noninteractive install flathub org.gnome.Weather
+    flatpak -y --noninteractive install flathub org.gnome.World.Iotas
+    flatpak -y --noninteractive install flathub org.gaphor.Gaphor
+    flatpak -y --noninteractive install flathub re.sonny.Workbench
+    flatpak -y --noninteractive install flathub xyz.ketok.Speedtest
     # Apply the correct theming for Legacy Applications
     flatpak -y install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 else
     echo "Installing KDE Apps as Flatpaks"
-    flatpak -y install flathub org.kde.kwrite
-    flatpak -y install flathub org.kde.kdevelop
-    flatpak -y install flathub org.kde.krdc
-    flatpak -y install flathub org.kde.okular
-    flatpak -y install flathub io.github.wereturtle.ghostwriter
-    flatpak -y install flathub org.kde.gwenview
-    flatpak -y install flathub org.kde.kile
-    flatpak -y install flathub org.kde.kclock
-    flatpak -y install flathub org.kde.marknote
-    flatpak -y install flathub org.kde.kalk
-    flatpak -y install flathub org.kde.calligra
-    flatpak -y install flathub org.kde.kalgebra
-    flatpak -y install flathub org.kde.isoimagewriter
-    flatpak -y install flathub org.gtk.Gtk3theme.Breeze
-    flatpak -y install flathub org.qownnotes.QOwnNotes
+    flatpak -y --noninteractive install flathub org.kde.kwrite
+    flatpak -y --noninteractive install flathub org.kde.kdevelop
+    flatpak -y --noninteractive install flathub org.kde.krdc
+    flatpak -y --noninteractive install flathub org.kde.okular
+    flatpak -y --noninteractive install flathub io.github.wereturtle.ghostwriter
+    flatpak -y --noninteractive install flathub org.kde.gwenview
+    flatpak -y --noninteractive install flathub org.kde.kile
+    flatpak -y --noninteractive install flathub org.kde.kclock
+    flatpak -y --noninteractive install flathub org.kde.marknote
+    flatpak -y --noninteractive install flathub org.kde.kalk
+    flatpak -y --noninteractive install flathub org.kde.calligra
+    flatpak -y --noninteractive install flathub org.kde.kalgebra
+    flatpak -y --noninteractive install flathub org.kde.isoimagewriter
+    flatpak -y --noninteractive install flathub org.gtk.Gtk3theme.Breeze
+    flatpak -y --noninteractive install flathub org.qownnotes.QOwnNotes
     # Apply the correct theming for GTK Applications
     flatpak override --user --filesystem=xdg-config/gtk-3.0:ro
 fi
@@ -240,46 +240,41 @@ fi
 ###########################
 # Flatpak Misc Applications
 ###########################
-flatpak -y install flathub io.github.ungoogled_software.ungoogled_chromium
-flatpak -y install flathub io.gitlab.librewolf-community
-flatpak -y install flathub org.keepassxc.KeePassXC
-flatpak -y install flathub com.bitwarden.desktop
-flatpak -y install flathub org.localsend.localsend_app
-flatpak -y install flathub org.telegram.desktop
-flatpak -y install flathub-beta com.discordapp.DiscordCanary
-flatpak -y install flathub org.libreoffice.LibreOffice
-flatpak -y install flathub org.onlyoffice.desktopeditors
-flatpak -y install flathub com.github.xournalpp.xournalpp
-flatpak -y install flathub com.github.flxzt.rnote
-flatpak -y install flathub ch.openboard.OpenBoard
-flatpak -y install flathub org.octave.Octave
-flatpak -y install flathub org.texstudio.TeXstudio
-flatpak -y install flathub net.xm1math.Texmaker
-flatpak -y install flathub org.kicad.KiCad
-flatpak -y install flathub org.freecadweb.FreeCAD
-flatpak -y install flathub org.librecad.librecad
-flatpak -y install flathub com.jgraph.drawio.desktop
-flatpak -y install flathub org.qgis.qgis
-flatpak -y install flathub io.mpv.Mpv
-flatpak -y install flathub org.gimp.GIMP
-flatpak -y install flathub com.boxy_svg.BoxySVG
-flatpak -y install flathub org.inkscape.Inkscape
-flatpak -y install flathub org.kde.krita
-flatpak -y install flathub org.blender.Blender
-flatpak -y install flathub org.kde.kdenlive
-flatpak -y install flathub fr.handbrake.ghb
-flatpak -y install flathub org.tenacityaudio.Tenacity
-flatpak -y install flathub org.nickvision.tubeconverter
-flatpak -y install flathub com.obsproject.Studio
-flatpak -y install flathub io.github.vmkspv.netsleuth
-flatpak -y install flathub com.spotify.Client
-flatpak -y install flathub com.valvesoftware.Steam
-flatpak -y install flathub net.lutris.Lutris
-flatpak -y install flathub com.heroicgameslauncher.hgl
-flatpak -y install flathub org.duckstation.DuckStation
-flatpak -y install flathub net.pcsx2.PCSX2
-flatpak -y install flathub org.ppsspp.PPSSPP
-flatpak -y install flathub org.DolphinEmu.dolphin-emu
+flatpak -y --noninteractive install flathub io.github.ungoogled_software.ungoogled_chromium
+flatpak -y --noninteractive install flathub io.gitlab.librewolf-community
+flatpak -y --noninteractive install flathub org.keepassxc.KeePassXC
+flatpak -y --noninteractive install flathub com.bitwarden.desktop
+flatpak -y --noninteractive install flathub org.localsend.localsend_app
+flatpak -y --noninteractive install flathub org.telegram.desktop
+flatpak -y --noninteractive install flathub-beta com.discordapp.DiscordCanary
+flatpak -y --noninteractive install flathub org.libreoffice.LibreOffice
+flatpak -y --noninteractive install flathub org.onlyoffice.desktopeditors
+flatpak -y --noninteractive install flathub com.github.xournalpp.xournalpp
+flatpak -y --noninteractive install flathub com.github.flxzt.rnote
+flatpak -y --noninteractive install flathub ch.openboard.OpenBoard
+flatpak -y --noninteractive install flathub org.octave.Octave
+flatpak -y --noninteractive install flathub org.kicad.KiCad
+flatpak -y --noninteractive install flathub com.jgraph.drawio.desktop
+flatpak -y --noninteractive install flathub org.qgis.qgis
+flatpak -y --noninteractive install flathub io.mpv.Mpv
+flatpak -y --noninteractive install flathub org.gimp.GIMP
+flatpak -y --noninteractive install flathub org.inkscape.Inkscape
+flatpak -y --noninteractive install flathub org.kde.krita
+flatpak -y --noninteractive install flathub org.blender.Blender
+flatpak -y --noninteractive install flathub org.kde.kdenlive
+flatpak -y --noninteractive install flathub fr.handbrake.ghb
+flatpak -y --noninteractive install flathub org.tenacityaudio.Tenacity
+flatpak -y --noninteractive install flathub org.nickvision.tubeconverter
+flatpak -y --noninteractive install flathub com.obsproject.Studio
+flatpak -y --noninteractive install flathub io.github.vmkspv.netsleuth
+flatpak -y --noninteractive install flathub com.spotify.Client
+flatpak -y --noninteractive install flathub com.valvesoftware.Steam
+flatpak -y --noninteractive install flathub net.lutris.Lutris
+flatpak -y --noninteractive install flathub com.heroicgameslauncher.hgl
+flatpak -y --noninteractive install flathub org.duckstation.DuckStation
+flatpak -y --noninteractive install flathub net.pcsx2.PCSX2
+flatpak -y --noninteractive install flathub org.ppsspp.PPSSPP
+flatpak -y --noninteractive install flathub org.DolphinEmu.dolphin-emu
 
 
 ###########################
