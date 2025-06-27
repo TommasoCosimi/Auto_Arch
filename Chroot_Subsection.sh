@@ -161,30 +161,6 @@ sed -i 's/#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/g' /etc/def
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-########################
-# Numlock at bootup time
-########################
-pacman -Syu --noconfirm numlockx
-echo "#!/bin/bash
-
-for tty in /dev/tty{1..6}
-do
-    /usr/bin/setleds -D +num < "$tty";
-done" > /usr/local/bin/numlock
-chmod +x /usr/local/bin/numlock
-echo "[Unit]
-Description=numlock
-
-[Service]
-ExecStart=/usr/local/bin/numlock
-StandardInput=tty
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target" > /etc/systemd/system/numlock.service
-sudo systemctl enable numlock.service
-
-
 ##########
 # Firewall
 ##########
