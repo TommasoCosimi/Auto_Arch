@@ -112,10 +112,10 @@ Operation=Install
 Operation=Upgrade
 Operation=Remove
 Type=Package
-# Uncomment the installed NVIDIA package
+# You can remove package(s) that don't apply to your config, e.g. if you only use nvidia-open you can remove nvidia-lts as a Target
 Target=nvidia
-#Target=nvidia-open
-#Target=nvidia-lts
+Target=nvidia-open
+Target=nvidia-lts
 # If running a different kernel, modify below to match
 Target=linux
 
@@ -124,7 +124,7 @@ Description=Updating NVIDIA module in initcpio
 Depends=mkinitcpio
 When=PostTransaction
 NeedsTargets
-Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'" > /etc/pacman.d/hooks/nvidia.hook
+Exec=/bin/sh -c 'while read -r trg; do case \$trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'" > /etc/pacman.d/hooks/nvidia.hook
 fi
 pacman -Syu --noconfirm libva-utils vdpauinfo vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools clinfo
 
