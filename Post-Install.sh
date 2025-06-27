@@ -213,7 +213,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y --noninteractive install flathub re.sonny.Workbench
     flatpak -y --noninteractive install flathub xyz.ketok.Speedtest
     # Apply the correct theming for Legacy Applications
-    flatpak -y install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+    flatpak -y --noninteractive install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 else
     echo "Installing KDE Apps as Flatpaks"
     flatpak -y --noninteractive install flathub org.kde.kwrite
