@@ -134,7 +134,7 @@ yay -Syu --noconfirm fuse2 gtkmm ncurses libcanberra pcsclite gcc make libaio vm
 sudo systemctl start vmware-networks-configuration.service
 sudo systemctl enable --now vmware-networks.service
 sudo systemctl enable --now vmware-usbarbitrator.service
-vmplayer
+vmplayer &
 sleep 1s
 killall vmplayer
 echo "mks.gl.allowBlacklistedDrivers = TRUE" >> $HOME/.vmware/preferences
