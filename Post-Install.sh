@@ -204,7 +204,6 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y --noninteractive install flathub org.gnome.Music
     flatpak -y --noninteractive install flathub org.gnome.NetworkDisplays
     flatpak -y --noninteractive install flathub org.gnome.Papers
-    flatpak -y --noninteractive install flathub org.gnome.Photos
     flatpak -y --noninteractive install flathub org.gnome.SimpleScan
     flatpak -y --noninteractive install flathub org.gnome.Snapshot
     flatpak -y --noninteractive install flathub org.gnome.SoundRecorder
