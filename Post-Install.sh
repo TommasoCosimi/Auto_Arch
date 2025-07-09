@@ -180,6 +180,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     echo "Installing GNOME Apps as Flatpaks"
     flatpak -y --noninteractive install flathub ca.desrt.dconf-editor
     flatpak -y --noninteractive install flathub com.belmoussaoui.Obfuscate
+    flatpak -y --noninteractive install flathub com.github.neithern.g4music
     flatpak -y --noninteractive install flathub com.github.tchx84.Flatseal
     flatpak -y --noninteractive install flathub de.haeckerfelix.Fragments
     flatpak -y --noninteractive install flathub io.gitlab.adhami3310.Impression
@@ -208,7 +209,7 @@ if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     flatpak -y --noninteractive install flathub org.gnome.Snapshot
     flatpak -y --noninteractive install flathub org.gnome.SoundRecorder
     flatpak -y --noninteractive install flathub org.gnome.TextEditor
-    flatpak -y --noninteractive install flathub org.gnome.Totem
+    flatpak -y --noninteractive install flathub org.gnome.Showtime
     flatpak -y --noninteractive install flathub org.gnome.Weather
     flatpak -y --noninteractive install flathub org.gnome.World.Iotas
     flatpak -y --noninteractive install flathub org.gaphor.Gaphor
@@ -260,6 +261,7 @@ flatpak -y --noninteractive install flathub org.qgis.qgis
 flatpak -y --noninteractive install flathub io.mpv.Mpv
 flatpak -y --noninteractive install flathub org.gimp.GIMP
 flatpak -y --noninteractive install flathub org.inkscape.Inkscape
+flatpak -y --noninteractive install flathub org.darktable.Darktable
 flatpak -y --noninteractive install flathub org.kde.krita
 flatpak -y --noninteractive install flathub org.blender.Blender
 flatpak -y --noninteractive install flathub org.kde.kdenlive
